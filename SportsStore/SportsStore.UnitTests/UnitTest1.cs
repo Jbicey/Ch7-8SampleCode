@@ -20,7 +20,7 @@ namespace SportsStore.UnitTests
         public void Can_Paginate()
         {
             // Arrange
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
             mock.Setup(m => m.Products).Returns(new Product[] {
                 new Product {ProductID = 1, Name = "P1"},
                 new Product {ProductID = 2, Name = "P2"},
@@ -32,7 +32,7 @@ namespace SportsStore.UnitTests
             controller.PageSize = 3;
             // Act
             IEnumerable<Product> result =
-            (IEnumerable<Product>)controller.List(2).Model;
+            (IEnumerable<Product>)controller.List(null,2).Model;
             // Assert
             Product[] prodArray = result.ToArray();
             Assert.IsTrue(prodArray.Length == 2);
@@ -66,7 +66,7 @@ namespace SportsStore.UnitTests
         public void Can_Send_Pagination_View_Model()
         {
             // Arrange
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
             mock.Setup(m => m.Products).Returns(new Product[] {
                  new Product {ProductID = 1, Name = "P1"},
                  new Product {ProductID = 2, Name = "P2"},
@@ -82,7 +82,7 @@ namespace SportsStore.UnitTests
                 (ProductsListViewModel)controller.List(null, 2).Model;
 
             // Assert
-            PagingInfo pageInfo = result.Products.ToArray();
+            PagingInfo pageInfo = result.PagingInfo;
             Assert.AreEqual(pageInfo.CurrentPage, 2);
             Assert.AreEqual(pageInfo.ItemsPerPage, 3);
             Assert.AreEqual(pageInfo.TotalItems, 5);
@@ -93,7 +93,7 @@ namespace SportsStore.UnitTests
         {
             // Arrange
             // - create the mock repository
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
             mock.Setup(m => m.Products).Returns(new Product[] {
                 new Product {ProductID = 1, Name = "P1", Category = "Cat1"},
                 new Product {ProductID = 2, Name = "P2", Category = "Cat2"},
@@ -117,7 +117,7 @@ namespace SportsStore.UnitTests
         {
             // Arrange
             // - create the mock repository
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
             mock.Setup(m => m.Products).Returns(new Product[] {
  new Product {ProductID = 1, Name = "P1", Category = "Apples"},
  new Product {ProductID = 2, Name = "P2", Category = "Apples"},
@@ -139,7 +139,7 @@ namespace SportsStore.UnitTests
         {
             // Arrange
             // - create the mock repository
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
             mock.Setup(m => m.Products).Returns(new Product[] {
                 new Product {ProductID = 1, Name = "P1", Category = "Apples"},
                 new Product {ProductID = 4, Name = "P2", Category = "Oranges"},
@@ -158,7 +158,7 @@ namespace SportsStore.UnitTests
         {
             // Arrange
             // - create the mock repository
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
             mock.Setup(m => m.Products).Returns(new Product[] {
                      new Product {ProductID = 1, Name = "P1", Category = "Cat1"},
                      new Product {ProductID = 2, Name = "P2", Category = "Cat2"},

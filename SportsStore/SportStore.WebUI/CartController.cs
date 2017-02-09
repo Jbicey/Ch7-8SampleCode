@@ -8,8 +8,8 @@ namespace SportsStore.WebUI.Controllers
 {
     public class CartController : Controller
     {
-        private IProductRepository repository;
-        public CartController(IProductRepository repo)
+        private IProductsRepository repository;
+        public CartController(IProductsRepository repo)
         {
             repository = repo;
         }

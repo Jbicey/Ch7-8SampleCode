@@ -9,7 +9,7 @@ namespace SportsStore.WebUI
 {
     public class RouteConfig
     {
-    public static void RegisterRoutes(RouteCollection routes)
+    public static void RegisterRoutes(RouteCollection routes) {
         routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
         routes.MapRoute(null,
@@ -18,7 +18,8 @@ namespace SportsStore.WebUI
         controller = "Product", action = "List",
         category = (string)null, page = 1
     }
- );    routes.MapRoute(null,
+    );
+    routes.MapRoute(null,
         "Page{page}",
         new { controller = "Product", action = "List", category = (string)null },
         new { page = @"\d+" }
