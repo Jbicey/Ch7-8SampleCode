@@ -6,11 +6,11 @@
         <span class="pull-right label label-primary">@Model.Price.ToString("c")</span>
     </h3>
 
-    @using (Html32TextWriter.BeginForm("AddToCart", "Cart"))
+    @using (Html.BeginForm("AddToCart", "Cart"))
     {
         <div class="pull-right">
-            @Html32TextWriter.HiddenFor(x => x.ProductID)
-            @Html32TextWriter.Hidden("returnUrl", RequestUrl.PathAndQuery)
+            @Html.HiddenFor(x => x.ProductID)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
             <input type="submit" class="btn btn-success" value="Add to cart" />
         </div>
     }
