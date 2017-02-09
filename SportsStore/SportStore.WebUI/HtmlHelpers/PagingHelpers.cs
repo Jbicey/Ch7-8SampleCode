@@ -26,5 +26,5 @@ namespace SportsStore.WebUI.HtmlHelpers
             }
             return MvcHtmlString.Create(result.ToString());
         }
+        }
     }
-}
