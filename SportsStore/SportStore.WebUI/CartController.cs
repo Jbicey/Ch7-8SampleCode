@@ -62,10 +62,10 @@ namespace SportsStore.WebUI.Controllers
         }
         public ViewResult Checkout()
         {
-            return View(new SportStore.Domain.Entities.ShippingDetails());
+            return View(new SportsStore.Domain.Entities.ShippingDetails());
         }
         [HttpPost]
-        public ViewResult Checkout(Cart cart, SportStore.Domain.Entities.ShippingDetails shippingDetails)
+        public ViewResult Checkout(Cart cart, SportsStore.Domain.Entities.ShippingDetails shippingDetails)
         {
             if (cart.Lines.Count() == 0)
             {

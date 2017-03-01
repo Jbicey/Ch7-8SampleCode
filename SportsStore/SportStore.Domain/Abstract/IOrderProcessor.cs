@@ -4,6 +4,6 @@ namespace SportsStore.Domain.Abstract
 {
     public interface IOrderProcessor
     {
-        void ProcessOrder(Cart cart, SportStore.Domain.Entities.ShippingDetails shippingDetails);
+        void ProcessOrder(Cart cart, SportsStore.Domain.Entities.ShippingDetails shippingDetails);
     }
 }

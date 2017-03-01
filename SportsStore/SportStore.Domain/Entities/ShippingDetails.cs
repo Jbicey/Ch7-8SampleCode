@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SportStore.Domain.Entities
+namespace SportsStore.Domain.Entities
 {
     public class ShippingDetails
     {

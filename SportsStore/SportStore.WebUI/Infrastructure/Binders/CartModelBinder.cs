@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using SportsStore.Domain.Entities;
 
-namespace SportStore.WebUI.Infrastructure.Binders
+namespace SportsStore.WebUI.Infrastructure.Binders
 {
     public class CartModelBinder : IModelBinder
     {
